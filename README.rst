@@ -38,7 +38,7 @@ Notice how the `t` argument provided to the `select` predicate has a named field
            | select( lambda t: int(t.Salary) > 50000 )
            | project( "Name", "Age" ))
 
-Queries in `csvq` use a *lazy* evaluation strategy whenever possible. A Relation is modeled as an iterator over a collection of tuples, plus name and type information for the columns. Streaming operations (those that can be chained using the `|` operator) are implemented as iterator adapators.
+Queries in `csvq` use a *lazy* evaluation strategy whenever possible. A Relation is modeled as an iterator over a collection of tuples, plus name and type information for the columns. Streaming operations (those that can be chained using the `|` operator) are implemented as iterator adaptors.
 
 A streamed relation is "consumed" the first time it is traversed. The simplest way to consume a relation is with standard Python iterable syntax::
 
@@ -81,7 +81,7 @@ If Python complains that you've passed an argument of type `function` to operato
   with stream_typed( "employees_typed.csv" ) as employees:
     # Right
     r = evaluate( employees )
-	# WRONG
+    # WRONG
     # r = employees | evaluate
 
 API Summary
@@ -134,9 +134,9 @@ Conversion to Python types
 Testing
 -------
 
-Execute
+Execute::
 
->>> python3 -m unittest csvq.test
+$ python3 -m unittest csvq.test
 
 from the project root directory to run unit tests.
 
